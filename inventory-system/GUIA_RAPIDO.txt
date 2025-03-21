@@ -1,0 +1,105 @@
+GUIA RÁPIDO DE INÍCIO - SISTEMA DE INVENTÁRIO
+============================================
+
+Comandos Rápidos:
+----------------
+
+1. Primeira Instalação:
+----------------------
+# Clone o repositório e instale as dependências
+git clone [url-do-repositorio]
+cd inventory-system
+
+# Configure o Backend
+cd backend
+cp .env.example .env     # Copie e configure suas variáveis de ambiente
+npm install
+npm start
+
+# Configure o Frontend (em outro terminal)
+cd ../frontend
+npm install
+npm start
+
+2. Iniciar o Sistema:
+--------------------
+# Terminal 1 - Backend
+cd inventory-system/backend
+npm start
+
+# Terminal 2 - Frontend
+cd inventory-system/frontend
+npm start
+
+3. Portas Padrão:
+----------------
+- Backend: http://localhost:5000
+- Frontend: http://localhost:3000
+- MongoDB: mongodb://localhost:27017
+
+4. Endpoints Principais:
+----------------------
+- Login: POST /api/auth/login
+- Registro: POST /api/auth/register
+- Produtos: GET /api/products
+- Usuários: GET /api/users
+
+5. Comandos Úteis:
+----------------
+# Limpar cache e reinstalar dependências
+rm -rf node_modules
+rm package-lock.json
+npm install
+
+# Verificar logs
+Backend: npm run logs
+Frontend: npm run build
+
+6. Problemas Comuns:
+------------------
+a) Erro de CORS:
+   - Verifique se o CORS_ORIGIN no .env está correto
+   - Frontend deve estar rodando na porta especificada
+
+b) Erro de Conexão MongoDB:
+   - Verifique se o MongoDB está rodando
+   - Confira a URL no arquivo .env
+
+c) Erro de Porta em Uso:
+   - Verifique processos rodando: 
+     lsof -i :3000
+     lsof -i :5000
+   - Mate o processo: 
+     kill -9 [PID]
+
+7. Desenvolvimento:
+-----------------
+# Rodar em modo desenvolvimento
+Backend: npm run dev
+Frontend: npm start
+
+# Executar testes
+Backend: npm test
+Frontend: npm test
+
+8. Atualizações:
+--------------
+# Atualizar dependências
+npm update
+
+# Verificar vulnerabilidades
+npm audit
+npm audit fix
+
+Lembre-se:
+---------
+1. Sempre mantenha o .env seguro
+2. Nunca commite credenciais
+3. Mantenha as dependências atualizadas
+4. Faça backup do banco regularmente
+
+Para mais detalhes, consulte:
+---------------------------
+- README.md: Documentação completa
+- TUTORIAL.txt: Guia detalhado
+- /backend/docs: Documentação da API
