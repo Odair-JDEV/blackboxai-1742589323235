@@ -1,0 +1,84 @@
+TUTORIAL DE INSTALAÇÃO E EXECUÇÃO DO SISTEMA DE INVENTÁRIO
+=========================================================
+
+Requisitos do Sistema:
+---------------------
+1. Node.js (versão 14 ou superior)
+2. npm (gerenciador de pacotes do Node.js)
+3. Git (para clonar o repositório)
+
+Instalação e Configuração:
+-------------------------
+
+1. BACKEND (API):
+----------------
+a) Navegue até a pasta do backend:
+   cd inventory-system/backend
+
+b) Instale as dependências:
+   npm install
+
+c) Configure as variáveis de ambiente:
+   - Crie um arquivo .env na pasta backend
+   - Adicione as seguintes variáveis:
+     PORT=5000
+     MONGODB_URI=sua_url_do_mongodb
+     JWT_SECRET=seu_segredo_jwt
+
+d) Inicie o servidor:
+   npm start
+
+
+2. FRONTEND (Interface):
+-----------------------
+a) Navegue até a pasta do frontend:
+   cd inventory-system/frontend
+
+b) Instale as dependências:
+   npm install
+
+c) Inicie a aplicação:
+   npm start
+
+
+Como Executar o Sistema:
+-----------------------
+1. Primeiro, inicie o backend:
+   - Abra um terminal
+   - cd inventory-system/backend
+   - npm start
+   - O servidor iniciará na porta 5000
+
+2. Em seguida, inicie o frontend:
+   - Abra outro terminal
+   - cd inventory-system/frontend
+   - npm start
+   - A aplicação web abrirá automaticamente no seu navegador
+
+Observações Importantes:
+-----------------------
+- Certifique-se de que o MongoDB está instalado e rodando em sua máquina
+- O backend deve estar rodando na porta 5000
+- O frontend rodará na porta 3000
+- Mantenha ambos os serviços (backend e frontend) rodando simultaneamente
+
+Solução de Problemas Comuns:
+---------------------------
+1. Erro "Port already in use":
+   - Encerre o processo que está usando a porta
+   - Ou altere a porta no arquivo de configuração
+
+2. Erro de dependências:
+   - Delete a pasta node_modules
+   - Delete o arquivo package-lock.json
+   - Execute npm install novamente
+
+3. Erro de conexão com o banco:
+   - Verifique se o MongoDB está rodando
+   - Confirme se a URL do MongoDB está correta no .env
+
+Para mais informações ou suporte:
+-------------------------------
+- Consulte a documentação no README.md
+- Verifique os logs de erro no console
+- Entre em contato com a equipe de suporte
