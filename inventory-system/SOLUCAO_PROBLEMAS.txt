@@ -1,0 +1,147 @@
+GUIA DE SOLUÇÃO DE PROBLEMAS - SISTEMA DE INVENTÁRIO
+==================================================
+
+1. PROBLEMAS DE INSTALAÇÃO
+-------------------------
+
+1.1 Erro ao instalar dependências:
+    Problema: "npm ERR! Failed to install dependencies"
+    Solução:
+    - Limpe o cache do npm:
+      npm cache clean --force
+    - Delete node_modules e package-lock.json:
+      rm -rf node_modules package-lock.json
+    - Reinstale as dependências:
+      npm install
+
+1.2 Versão do Node incompatível:
+    Problema: "This version of npm is not compatible with your Node.js version"
+    Solução:
+    - Atualize o Node.js para a versão mais recente LTS
+    - Use o nvm para gerenciar versões do Node:
+      nvm install 14
+      nvm use 14
+
+2. PROBLEMAS DE CONEXÃO
+----------------------
+
+2.1 Erro de conexão com MongoDB:
+    Problema: "MongoNetworkError: connect ECONNREFUSED"
+    Soluções:
+    - Verifique se o MongoDB está rodando:
+      sudo systemctl status mongodb
+    - Confirme a URL no arquivo .env
+    - Verifique as permissões do banco de dados
+    - Teste a conexão manualmente:
+      mongo mongodb://localhost:27017
+
+2.2 Erro de CORS:
+    Problema: "Access-Control-Allow-Origin header missing"
+    Soluções:
+    - Verifique o CORS_ORIGIN no .env
+    - Confirme se as portas estão corretas
+    - Adicione o domínio à lista de origens permitidas
+
+3. PROBLEMAS DE AUTENTICAÇÃO
+---------------------------
+
+3.1 Token JWT inválido:
+    Problema: "Invalid token" ou "Token expired"
+    Soluções:
+    - Verifique se JWT_SECRET está correto no .env
+    - Confirme se o token não expirou
+    - Faça logout e login novamente
+    - Limpe o localStorage do navegador
+
+3.2 Falha no login:
+    Problema: "Invalid credentials"
+    Soluções:
+    - Verifique as credenciais
+    - Confirme se o usuário existe no banco
+    - Resetar a senha se necessário
+
+4. PROBLEMAS DE PERFORMANCE
+--------------------------
+
+4.1 Frontend lento:
+    Soluções:
+    - Limpe o cache do navegador
+    - Verifique o uso de memória
+    - Otimize as imagens
+    - Reduza o número de requisições
+
+4.2 Backend lento:
+    Soluções:
+    - Verifique os logs do servidor
+    - Monitore o uso de CPU/memória
+    - Otimize as consultas ao banco
+    - Implemente cache quando possível
+
+5. PROBLEMAS DE BUILD
+--------------------
+
+5.1 Erro no build do Frontend:
+    Problema: "Build failed"
+    Soluções:
+    - Verifique os erros no console
+    - Confirme se todas as dependências estão instaladas
+    - Limpe o cache:
+      npm cache clean --force
+    - Recrie o build:
+      npm run build
+
+5.2 Erro no build do Backend:
+    Soluções:
+    - Verifique a sintaxe do código
+    - Confirme se todas as variáveis de ambiente estão definidas
+    - Verifique os logs de erro
+
+6. PROBLEMAS DE DEPLOY
+---------------------
+
+6.1 Erro no deploy:
+    Soluções:
+    - Verifique as configurações de ambiente
+    - Confirme as variáveis de ambiente
+    - Verifique os logs do servidor
+    - Teste localmente antes do deploy
+
+7. COMANDOS ÚTEIS PARA DIAGNÓSTICO
+--------------------------------
+
+7.1 Verificar portas em uso:
+    sudo lsof -i :3000
+    sudo lsof -i :5000
+
+7.2 Verificar logs:
+    Backend: npm run logs
+    Frontend: npm run build
+
+7.3 Verificar status dos serviços:
+    sudo systemctl status mongodb
+    pm2 status (se estiver usando PM2)
+
+8. PREVENÇÃO DE PROBLEMAS
+------------------------
+
+8.1 Boas práticas:
+    - Mantenha as dependências atualizadas
+    - Faça backup regular do banco de dados
+    - Monitore os logs do sistema
+    - Implemente testes automatizados
+    - Mantenha o código versionado
+
+8.2 Manutenção regular:
+    - Atualize as dependências: npm update
+    - Verifique vulnerabilidades: npm audit
+    - Limpe caches periodicamente
+    - Monitore o uso de recursos
+
+9. CONTATO PARA SUPORTE
+----------------------
+
+Em caso de problemas não resolvidos:
+- Abra uma issue no repositório
+- Documente o problema detalhadamente
+- Inclua logs e screenshots relevantes
+- Descreva os passos para reproduzir o erro
