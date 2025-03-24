@@ -1,0 +1,109 @@
+GUIA DE INSTALAÇÃO RÁPIDA - SISTEMA DE INVENTÁRIO
+===============================================
+
+INÍCIO RÁPIDO
+------------
+1. Abra o terminal
+2. Execute: ./iniciar.sh
+3. Escolha a opção 1 para iniciar o sistema completo
+
+INSTALAÇÃO DETALHADA
+-------------------
+
+1. PREPARAÇÃO
+------------
+a) Dê permissão aos scripts:
+   chmod +x *.sh
+
+b) Verifique os requisitos:
+   ./verificar_requisitos.sh
+   - Certifique-se que todos os requisitos estão OK
+   - Instale qualquer dependência faltante
+
+2. INSTALAÇÃO
+------------
+a) Use o gerenciador principal:
+   ./gerenciador.sh
+
+b) No menu, selecione:
+   1. "Verificar Requisitos do Sistema"
+   2. "Instalar Sistema"
+   3. Aguarde a instalação completar
+
+3. CONFIGURAÇÃO
+-------------
+a) Configure o backend:
+   - Copie o arquivo de exemplo: cp backend/.env.example backend/.env
+   - Edite as configurações: nano backend/.env
+
+b) Configure o frontend:
+   - As configurações padrão já estão prontas para uso
+   - Se necessário, ajuste as variáveis em frontend/.env
+
+4. INICIANDO O SISTEMA
+--------------------
+OPÇÃO 1 - Usando o iniciar.sh (Recomendado):
+- Execute: ./iniciar.sh
+- Escolha "Iniciar Sistema Completo"
+
+OPÇÃO 2 - Usando o gerenciador:
+- Execute: ./gerenciador.sh
+- Selecione "Gerenciar Serviços"
+- Escolha "Iniciar Sistema Completo"
+
+5. VERIFICAÇÃO
+------------
+Após a instalação, verifique:
+- Frontend: http://localhost:3000
+- Backend: http://localhost:5000
+- MongoDB: Deve estar rodando na porta 27017
+
+6. SCRIPTS DISPONÍVEIS
+--------------------
+- iniciar.sh: Início rápido do sistema
+- gerenciador.sh: Gerenciamento completo
+- sistema.sh: Controle de serviços
+- db_utils.sh: Utilitários do banco
+- monitoramento.sh: Monitoramento em tempo real
+- manutencao.sh: Manutenção do sistema
+
+7. SOLUÇÃO DE PROBLEMAS
+---------------------
+Se encontrar problemas:
+1. Verifique os logs em ./logs
+2. Use ./monitoramento.sh para diagnóstico
+3. Consulte SOLUCAO_PROBLEMAS.txt
+
+8. MANUTENÇÃO
+-----------
+Para manter o sistema:
+1. Execute backups regularmente (use db_utils.sh)
+2. Monitore o sistema (use monitoramento.sh)
+3. Faça manutenção periódica (use manutencao.sh)
+
+9. COMANDOS ÚTEIS
+---------------
+- Ver status: ./gerenciador.sh (opção "Verificar Status")
+- Parar sistema: ./sistema.sh (opção "Parar Todos os Serviços")
+- Backup: ./db_utils.sh (opção "Criar Backup")
+- Monitorar: ./monitoramento.sh
+
+10. DOCUMENTAÇÃO ADICIONAL
+------------------------
+Consulte os seguintes arquivos:
+- README.md: Visão geral
+- TUTORIAL.txt: Guia completo
+- GUIA_RAPIDO.txt: Referência rápida
+- SOLUCAO_PROBLEMAS.txt: Troubleshooting
+
+OBSERVAÇÕES IMPORTANTES
+---------------------
+1. Mantenha sempre backups atualizados
+2. Monitore regularmente o sistema
+3. Mantenha as dependências atualizadas
+4. Verifique os logs periodicamente
+
+Para mais informações ou suporte:
+- Consulte a documentação completa em LEIA-ME_DOCUMENTACAO.txt
+- Use o sistema de monitoramento para diagnósticos
+- Mantenha os scripts de automação atualizados
