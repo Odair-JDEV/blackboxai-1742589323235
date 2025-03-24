@@ -1,0 +1,106 @@
+COMANDOS RÁPIDOS - SISTEMA DE INVENTÁRIO
+======================================
+
+INICIALIZAÇÃO RÁPIDA
+-------------------
+./iniciar.sh                    # Inicia todo o sistema
+./gerenciador.sh               # Abre o gerenciador completo
+
+INSTALAÇÃO
+---------
+1. chmod +x *.sh               # Dar permissão aos scripts
+2. ./verificar_requisitos.sh   # Verificar requisitos
+3. ./install.sh               # Instalar o sistema
+
+GERENCIAMENTO DE SERVIÇOS
+------------------------
+./sistema.sh
+- Opção 1: Iniciar tudo
+- Opção 2: Iniciar backend
+- Opção 3: Iniciar frontend
+- Opção 4: Parar tudo
+
+BANCO DE DADOS
+-------------
+./db_utils.sh
+- Opção 1: Criar backup
+- Opção 2: Restaurar backup
+- Opção 3: Limpar dados antigos
+
+MONITORAMENTO
+------------
+./monitoramento.sh
+- Opção 1: Ver recursos
+- Opção 2: Ver logs
+- Opção 5: Monitoramento em tempo real
+
+MANUTENÇÃO
+---------
+./manutencao.sh
+- Opção 1: Backup completo
+- Opção 2: Atualizar deps
+- Opção 4: Limpar temporários
+
+PORTAS PADRÃO
+------------
+Frontend: http://localhost:3000
+Backend:  http://localhost:5000
+MongoDB:  localhost:27017
+
+LOGS E ARQUIVOS
+-------------
+./logs/                       # Diretório de logs
+./backups/                    # Diretório de backups
+backend/.env                  # Configurações do backend
+frontend/.env                 # Configurações do frontend
+
+SOLUÇÃO DE PROBLEMAS COMUNS
+-------------------------
+1. Erro de porta em uso:
+   ./sistema.sh > Parar tudo > Iniciar novamente
+
+2. Erro de conexão com banco:
+   ./db_utils.sh > Verificar status
+
+3. Sistema lento:
+   ./monitoramento.sh > Ver recursos
+
+4. Erros no sistema:
+   ./monitoramento.sh > Ver logs
+
+DOCUMENTAÇÃO
+-----------
+COMO_INSTALAR.txt            # Guia de instalação
+TUTORIAL.txt                 # Tutorial completo
+SOLUCAO_PROBLEMAS.txt        # Troubleshooting
+LEIA-ME_DOCUMENTACAO.txt     # Documentação completa
+
+DICAS RÁPIDAS
+------------
+1. Sempre verifique os requisitos antes de instalar
+2. Use o gerenciador para operações completas
+3. Monitore regularmente o sistema
+4. Faça backups periódicos
+5. Mantenha os logs organizados
+
+ATALHOS DO GERENCIADOR
+--------------------
+1 - Verificar requisitos
+2 - Instalar sistema
+3 - Gerenciar serviços
+4 - Utilitários do banco
+5 - Monitoramento
+6 - Manutenção
+7 - Status
+8 - Documentação
+9 - Sair
+
+SEQUÊNCIA DE INSTALAÇÃO RECOMENDADA
+--------------------------------
+1. ./verificar_requisitos.sh
+2. ./install.sh
+3. Configurar backend/.env
+4. ./sistema.sh > Iniciar tudo
+5. ./monitoramento.sh > Verificar status
+
+Para mais informações, consulte a documentação completa.
