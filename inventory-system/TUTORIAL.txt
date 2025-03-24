@@ -1,84 +1,131 @@
 TUTORIAL DE INSTALAÇÃO E EXECUÇÃO DO SISTEMA DE INVENTÁRIO
-=========================================================
+========================================================
 
-Requisitos do Sistema:
----------------------
-1. Node.js (versão 14 ou superior)
-2. npm (gerenciador de pacotes do Node.js)
-3. Git (para clonar o repositório)
+INSTALAÇÃO AUTOMATIZADA
+----------------------
 
-Instalação e Configuração:
--------------------------
+O sistema possui scripts de automação que facilitam a instalação e gerenciamento:
 
-1. BACKEND (API):
+1. Script Principal (Recomendado):
+   Execute:
+   $ chmod +x gerenciador.sh
+   $ ./gerenciador.sh
+
+   Este script oferece um menu interativo com todas as funcionalidades:
+   - Instalação automática
+   - Gerenciamento de serviços
+   - Utilitários do banco de dados
+   - Acesso à documentação
+
+2. Scripts Individuais:
+
+   a) Instalação:
+      $ chmod +x install.sh
+      $ ./install.sh
+      
+   b) Gerenciamento de Serviços:
+      $ chmod +x sistema.sh
+      $ ./sistema.sh
+      
+   c) Utilitários do Banco:
+      $ chmod +x db_utils.sh
+      $ ./db_utils.sh
+
+INSTALAÇÃO MANUAL
 ----------------
-a) Navegue até a pasta do backend:
-   cd inventory-system/backend
 
-b) Instale as dependências:
-   npm install
+Se preferir instalar manualmente, siga os passos abaixo:
 
-c) Configure as variáveis de ambiente:
-   - Crie um arquivo .env na pasta backend
-   - Adicione as seguintes variáveis:
-     PORT=5000
-     MONGODB_URI=sua_url_do_mongodb
-     JWT_SECRET=seu_segredo_jwt
+1. Requisitos do Sistema:
+   - Node.js (versão 14 ou superior)
+   - npm (gerenciador de pacotes do Node.js)
+   - MongoDB (versão 4.4 ou superior)
+   - Git
 
-d) Inicie o servidor:
-   npm start
+2. Configuração do Backend:
+   a) Navegue até a pasta backend:
+      $ cd backend
+   
+   b) Instale as dependências:
+      $ npm install
+   
+   c) Configure o ambiente:
+      - Copie o arquivo .env.example para .env
+      - Ajuste as variáveis conforme necessário
 
+3. Configuração do Frontend:
+   a) Navegue até a pasta frontend:
+      $ cd frontend
+   
+   b) Instale as dependências:
+      $ npm install
 
-2. FRONTEND (Interface):
------------------------
-a) Navegue até a pasta do frontend:
-   cd inventory-system/frontend
+EXECUÇÃO DO SISTEMA
+------------------
 
-b) Instale as dependências:
-   npm install
+1. Usando o Gerenciador (Recomendado):
+   $ ./gerenciador.sh
+   - Selecione a opção 2 para gerenciar serviços
+   - Escolha "Iniciar Sistema Completo"
 
-c) Inicie a aplicação:
-   npm start
+2. Execução Manual:
+   a) Inicie o Backend:
+      $ cd backend
+      $ npm start
 
+   b) Em outro terminal, inicie o Frontend:
+      $ cd frontend
+      $ npm start
 
-Como Executar o Sistema:
------------------------
-1. Primeiro, inicie o backend:
-   - Abra um terminal
-   - cd inventory-system/backend
-   - npm start
-   - O servidor iniciará na porta 5000
+3. Acesso ao Sistema:
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:5000
 
-2. Em seguida, inicie o frontend:
-   - Abra outro terminal
-   - cd inventory-system/frontend
-   - npm start
-   - A aplicação web abrirá automaticamente no seu navegador
+GERENCIAMENTO DO BANCO DE DADOS
+------------------------------
 
-Observações Importantes:
------------------------
-- Certifique-se de que o MongoDB está instalado e rodando em sua máquina
-- O backend deve estar rodando na porta 5000
-- O frontend rodará na porta 3000
-- Mantenha ambos os serviços (backend e frontend) rodando simultaneamente
+Utilize o script db_utils.sh para:
+- Criar backups
+- Restaurar backups
+- Limpar dados antigos
+- Inicializar com dados padrão
+- Verificar status
 
-Solução de Problemas Comuns:
----------------------------
-1. Erro "Port already in use":
-   - Encerre o processo que está usando a porta
-   - Ou altere a porta no arquivo de configuração
+SOLUÇÃO DE PROBLEMAS
+-------------------
 
-2. Erro de dependências:
-   - Delete a pasta node_modules
-   - Delete o arquivo package-lock.json
-   - Execute npm install novamente
+1. Problemas comuns:
+   - Consulte SOLUCAO_PROBLEMAS.txt para uma lista completa
+   - Use o gerenciador.sh para verificar o status do sistema
+   - Verifique os logs em ./logs
 
-3. Erro de conexão com o banco:
-   - Verifique se o MongoDB está rodando
-   - Confirme se a URL do MongoDB está correta no .env
+2. Portas em uso:
+   - O gerenciador tentará liberar portas automaticamente
+   - Manualmente: kill $(lsof -t -i:3000) para frontend
+                  kill $(lsof -t -i:5000) para backend
+
+MANUTENÇÃO
+----------
+
+1. Backups:
+   - Use db_utils.sh para gerenciar backups
+   - Recomendado: backup diário automático
+   - Mantenha cópias em local seguro
+
+2. Atualizações:
+   - Verifique atualizações regularmente
+   - Use o gerenciador para reinstalar dependências
+   - Mantenha o MongoDB atualizado
+
+DOCUMENTAÇÃO ADICIONAL
+---------------------
+
+- GUIA_RAPIDO.txt: Instruções resumidas
+- SOLUCAO_PROBLEMAS.txt: Resolução de problemas
+- LEIA-ME_DOCUMENTACAO.txt: Documentação completa
+- README.md: Visão geral do projeto
 
 Para mais informações ou suporte:
--------------------------------
-- Consulte a documentação no README.md
-- Verifique os logs de erro no console
+- Consulte a documentação completa
+- Verifique o repositório do projeto
 - Entre em contato com a equipe de suporte
