@@ -42,6 +42,37 @@ cd ..
 chmod -R 777 .
 
 echo "✅ Installation completed successfully!"
+
+# Create a startup script
+cat > start.sh << 'EOF'
+#!/bin/bash
+
+# Kill any process using port 5000 (backend)
+echo "Checking for processes on port 5000..."
+sudo kill -9 $(sudo lsof -t -i:5000) 2>/dev/null || true
+
+# Kill any process using port 3000 (frontend)
+echo "Checking for processes on port 3000..."
+sudo kill -9 $(sudo lsof -t -i:3000) 2>/dev/null || true
+
+# Start MongoDB if not running
+echo "Starting MongoDB..."
+sudo systemctl start mongod
+
+# Start backend
+echo "Starting backend server..."
+cd backend
+npm start &
+sleep 5
+
+# Start frontend
+echo "Starting frontend..."
+cd ../frontend
+npm start
+EOF
+
+chmod +x start.sh
+
 echo "
 MongoDB service status:"
 sudo systemctl status mongod
@@ -56,3 +87,5 @@ npm --version
 
 echo "
 🎉 Your development environment is ready!"
+echo "
+To start the application, run: ./start.sh"
